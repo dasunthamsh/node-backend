@@ -195,7 +195,7 @@ app.get('/admin-dashboard', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.send('Hello World, from express');
+    res.send('Hello World, from node');
 })
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
