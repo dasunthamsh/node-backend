@@ -16,6 +16,9 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 mongoose.connect("mongodb+srv://dasunthamash166:mcYzWeBLlNnJx3zs@cluster0.ulcqs.mongodb.net/", { useNewUrlParser: true, useUnifiedTopology: true });
 
+
+const PORT = 4000;
+
 // Configure multer for file uploads
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -192,6 +195,6 @@ app.get('/admin-dashboard', async (req, res) => {
 });
 
 
-app.listen(3001, () => {
-    console.log('Server is running on port 3001');
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
