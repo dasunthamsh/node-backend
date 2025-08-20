@@ -14,7 +14,10 @@ app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-mongoose.connect("mongodb+srv://dasunthamash166:mcYzWeBLlNnJx3zs@cluster0.ulcqs.mongodb.net/", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://dasunthamash166:mcYzWeBLlNnJx3zs@cluster0.ulcqs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+const PORT = 4000;
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({
@@ -191,7 +194,9 @@ app.get('/admin-dashboard', async (req, res) => {
     }
 });
 
-
-app.listen(3001, () => {
-    console.log('Server is running on port 3001');
+app.get('/', (req, res) => {
+    res.send('Hello World, from node');
+})
+app.listen(PORT, '0.0.0.0',() => {
+    console.log(`Server is running on port ${PORT}`);
 });
